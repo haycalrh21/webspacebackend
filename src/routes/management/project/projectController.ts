@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { db } from "../../../db/index.js";
 import { projectTable } from "../../../db/projectSchema.js";
 import { v2 as cloudinary } from "cloudinary";
+import { eq } from "drizzle-orm";
 
 // Konfigurasi Cloudinary
 cloudinary.config({
@@ -12,7 +13,7 @@ cloudinary.config({
 
 export async function createProject(req: Request, res: Response) {
   try {
-    const { name, images } = req.body;
+    const { name, images, description, language } = req.body;
 
     if (
       !images ||
@@ -39,6 +40,8 @@ export async function createProject(req: Request, res: Response) {
       .values({
         name,
         imageUrls,
+        description,
+        language,
       })
       .returning();
 
@@ -67,6 +70,18 @@ export function getProject(req: Request, res: Response) {
     });
 }
 
+export async function getProjectById(req: Request, res: Response) {
+  const { id } = req.params;
+  const [project] = await db
+    .select()
+    .from(projectTable)
+    .where(eq(projectTable.id, Number(id)));
+  if (project) {
+    res.json(project);
+  } else {
+    res.status(404).send({ message: "Project was not found" });
+  }
+}
 export function deleteProject(req: Request, res: Response) {
   res.send("delete project");
 }

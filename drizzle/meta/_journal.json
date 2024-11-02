@@ -15,6 +15,62 @@
       "when": 1729955746003,
       "tag": "0001_bizarre_toad_men",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1730198767392,
+      "tag": "0002_next_starbolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1730431157875,
+      "tag": "0003_breezy_meteorite",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1730431470471,
+      "tag": "0004_grey_sir_ram",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1730474158333,
+      "tag": "0005_chubby_ser_duncan",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1730474917019,
+      "tag": "0006_violet_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1730475030103,
+      "tag": "0007_modern_crystal",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1730475072483,
+      "tag": "0008_fat_masked_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1730475080061,
+      "tag": "0009_hard_black_widow",
+      "breakpoints": true
     }
   ]
 }

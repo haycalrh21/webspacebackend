@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createProject, deleteProject, getProject, } from "./projectController.js";
+import { createProject, deleteProject, getProject, getProjectById, } from "./projectController.js";
 import { z } from "zod";
 import { validateData } from "../../../middlewares/validationMiddlewares.js";
 import { verifyToken } from "../../../middlewares/authMiddlewares.js";
@@ -17,6 +17,7 @@ export const createProjectSchema = z.object({
         .nonempty("At least one image is required"),
 });
 router.get("/", getProject);
+router.get("/:id", getProjectById);
 router.post("/", verifyToken, validateData(createProjectSchema), createProject);
 router.delete("/", deleteProject);
 export default router;

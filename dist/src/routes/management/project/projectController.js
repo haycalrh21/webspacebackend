@@ -1,6 +1,7 @@
 import { db } from "../../../db/index.js";
 import { projectTable } from "../../../db/projectSchema.js";
 import { v2 as cloudinary } from "cloudinary";
+import { eq } from "drizzle-orm";
 // Konfigurasi Cloudinary
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -9,7 +10,7 @@ cloudinary.config({
 });
 export async function createProject(req, res) {
     try {
-        const { name, images } = req.body;
+        const { name, images, description, language } = req.body;
         if (!images ||
             !Array.isArray(images) ||
             images.some((img) => !img.startsWith("data:image"))) {
@@ -29,6 +30,8 @@ export async function createProject(req, res) {
             .values({
             name,
             imageUrls,
+            description,
+            language,
         })
             .returning();
         res.status(201).json({
@@ -54,6 +57,19 @@ export function getProject(req, res) {
             .status(500)
             .send({ error: "An error occurred while fetching projects" });
     });
+}
+export async function getProjectById(req, res) {
+    const { id } = req.params;
+    const [project] = await db
+        .select()
+        .from(projectTable)
+        .where(eq(projectTable.id, Number(id)));
+    if (project) {
+        res.json(project);
+    }
+    else {
+        res.status(404).send({ message: "Project was not found" });
+    }
 }
 export function deleteProject(req, res) {
     res.send("delete project");

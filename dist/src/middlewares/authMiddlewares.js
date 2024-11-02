@@ -4,6 +4,7 @@ export function verifyToken(req, res, next) {
     if (!token) {
         throw new Error("Unauthorized");
     }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "");
     try {
         const decoded = jwt.verify(token, "secret");
         if (typeof decoded !== "object" || !decoded) {

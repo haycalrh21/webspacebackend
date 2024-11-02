@@ -1,7 +1,7 @@
 import { ZodError } from "zod";
 export function validateData(schema) {
     return (req, res, next) => {
-        console.log(req.body);
+        req.body;
         try {
             schema.parse(req.body);
             next();
