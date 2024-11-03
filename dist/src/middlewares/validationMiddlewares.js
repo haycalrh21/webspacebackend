@@ -1,7 +1,6 @@
 import { ZodError } from "zod";
 export function validateData(schema) {
     return (req, res, next) => {
-        req.body;
         try {
             schema.parse(req.body);
             next();
@@ -9,7 +8,7 @@ export function validateData(schema) {
         catch (error) {
             if (error instanceof ZodError) {
                 const errorMessage = error.errors.map((issue) => ({
-                    message: `${issue.path.join(".")} is ${issue.message}`,
+                    message: `${issue.path.join(".")} ${issue.message}`,
                 }));
                 res.status(400).json({ error: errorMessage });
             }

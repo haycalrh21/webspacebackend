@@ -34,7 +34,7 @@ export async function loginUser(req: Request, res: Response): Promise<void> {
     const matched = await bcrypt.compare(password, user.password);
     // console.log(matched);
     if (!matched) {
-      res.status(401).json({ error: "Authentication failed" });
+      res.status(401).json({ error: "Account not found" });
       return; // Akhiri fungsi setelah mengirim respons
     }
 

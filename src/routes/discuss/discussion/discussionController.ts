@@ -11,9 +11,9 @@ export async function createDiscuss(req: Request, res: Response) {
     const [task] = await db
       .insert(discussTable)
       .values({
-        title,
-        description,
-        category,
+        title: title.trim(),
+        description: description.trim(),
+        category: category.trim(),
         userId,
       })
       .returning();

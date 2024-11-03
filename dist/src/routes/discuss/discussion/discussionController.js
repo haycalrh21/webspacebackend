@@ -9,9 +9,9 @@ export async function createDiscuss(req, res) {
         const [task] = await db
             .insert(discussTable)
             .values({
-            title,
-            description,
-            category,
+            title: title.trim(),
+            description: description.trim(),
+            category: category.trim(),
             userId,
         })
             .returning();
@@ -36,7 +36,7 @@ export async function getDiscusses(req, res) {
         })
             .from(discussTable)
             .innerJoin(userTable, eq(discussTable.userId, userTable.id))
-            .orderBy(desc(discussTable.createdAt)); // Menggunakan 'desc' sebagai argumen
+            .orderBy(desc(discussTable.createdAt));
         res.json(discusses);
     }
     catch (error) {
