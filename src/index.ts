@@ -5,6 +5,7 @@ import botRouter from "./routes/bot/index.js";
 import blogRouter from "./routes/discuss/blog/index.js";
 import tasksRouter from "./routes/tasks/index.js";
 import discussRouter from "./routes/discuss/discussion/index.js";
+import commentRouter from "./routes/discuss/discussion/comment/index.js";
 import cors from "cors";
 import serverless from "serverless-http";
 import cookieParser from "cookie-parser";
@@ -49,6 +50,7 @@ app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 app.use("/bot", botRouter);
 app.use("/discuss", discussRouter);
+app.use("/comment", commentRouter);
 app.use("/tasks", tasksRouter);
 
 if (process.env.NODE_ENV === "dev") {

@@ -71,6 +71,20 @@
       "when": 1730475080061,
       "tag": "0009_hard_black_widow",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1730533597926,
+      "tag": "0010_nervous_fat_cobra",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1730544051900,
+      "tag": "0011_living_black_bolt",
+      "breakpoints": true
     }
   ]
 }

@@ -7,6 +7,7 @@ export default defineConfig({
         "./src/db/blogSchema.ts",
         "./src/db/disscusSchema.ts",
         "./src/db/taskSchema.ts",
+        "./src/db/commentSchema.ts",
     ],
     dialect: "postgresql",
     dbCredentials: {

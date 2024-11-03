@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createDiscuss, getTasks } from "./discussionController.js";
+import { createDiscuss, getDiscusses } from "./discussionController.js";
 import { z } from "zod";
 import { validateData } from "../../../middlewares/validationMiddlewares.js";
 const router = Router();
@@ -10,7 +10,7 @@ export const createDiscussSchema = z.object({
   category: z.string({ message: "Category is required" }).min(1),
 });
 
-router.get("/", getTasks);
+router.get("/", getDiscusses);
 router.get("/:id");
 router.post("/", createDiscuss, validateData(createDiscussSchema));
 router.delete("/");

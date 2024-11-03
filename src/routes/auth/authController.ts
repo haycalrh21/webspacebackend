@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { db } from "../../db/index.js";
+import { eq } from "drizzle-orm";
 import { userTable } from "../../db/userSchema.js";
 import bcrypt from "bcryptjs";
-import { eq } from "drizzle-orm";
 import jwt from "jsonwebtoken";
 import https from "https";
 const generateUserToken = (user: any) => {
