@@ -1,0 +1,1 @@
+ALTER TABLE "discuss" ALTER COLUMN "title" SET DATA TYPE varchar;

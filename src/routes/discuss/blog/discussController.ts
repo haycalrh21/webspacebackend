@@ -81,6 +81,31 @@ export function getBlog(req: Request, res: Response) {
       });
     });
 }
+
+export async function deleteBlogPost(
+  req: Request,
+  res: Response
+): Promise<Response> {
+  const { id } = req.params;
+
+  try {
+    // Pastikan ID valid sebelum melakukan penghapusan
+    if (!id) {
+      return res.status(400).json({ message: "ID tidak valid" });
+    }
+
+    // Menghapus blog berdasarkan ID
+    const result = await db
+      .delete(blogTable)
+      .where(eq(blogTable.id, Number(id)));
+
+    // Mengembalikan respon sukses
+    return res.status(200).json({ message: "Blog berhasil dihapus" });
+  } catch (error) {
+    console.error("Error deleting blog post:", error);
+    return res.status(500).json({ message: "Terjadi kesalahan pada server" });
+  }
+}
 // export async function getProjectById(req: Request, res: Response) {
 //   const { id } = req.params;
 //   const [project] = await db

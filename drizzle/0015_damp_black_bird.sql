@@ -1,0 +1,1 @@
+ALTER TABLE "discuss" ALTER COLUMN "description" SET DATA TYPE text;

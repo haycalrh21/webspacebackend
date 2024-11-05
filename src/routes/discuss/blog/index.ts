@@ -3,7 +3,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { validateData } from "../../../middlewares/validationMiddlewares.js";
 import { verifyToken } from "../../../middlewares/authMiddlewares.js";
-import { createBlog, getBlog } from "./discussController.js";
+import { createBlog, deleteBlogPost, getBlog } from "./discussController.js";
 
 const router = Router();
 
@@ -30,6 +30,7 @@ export const createBlogSchema = z.object({
 router.get("/", getBlog);
 router.get("/:id");
 router.post("/", validateData(createBlogSchema), createBlog);
-router.delete("/");
-
+router.delete("/:id", async (req, res) => {
+  await deleteBlogPost(req, res);
+});
 export default router;

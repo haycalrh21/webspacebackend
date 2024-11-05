@@ -9,6 +9,7 @@ export default defineConfig({
     "./src/db/disscusSchema.ts",
     "./src/db/taskSchema.ts",
     "./src/db/commentSchema.ts",
+    "./src/db/botTelegram.ts",
   ],
   dialect: "postgresql",
   dbCredentials: {

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getUpdates, sendMessage } from "./botController.js";
+import { getUpdates, handleTelegramWebhook, sendMessage, } from "./botController.js";
 // import { validateData } from "../../../middlewares/validationMiddlewares.js";
 // import { verifyToken } from "../../../middlewares/authMiddlewares.js";
 // import { createBlog, getBlog } from "./discussController.js";
@@ -26,6 +26,7 @@ const router = Router();
 router.get("/", getUpdates);
 router.get("/:id");
 router.post("/send", sendMessage);
+router.post("/sendata", handleTelegramWebhook);
 // router.post("/", validateData(createBlogSchema), createBlog);
 router.delete("/");
 export default router;
