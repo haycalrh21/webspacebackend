@@ -52,6 +52,7 @@ export function getBlog(req, res) {
         blogId: blogTable.id,
         title: blogTable.title,
         category: blogTable.category,
+        createdAt: blogTable.createdAt,
         imageUrls: blogTable.imageUrls,
         content: blogTable.description,
         userId: userTable.id, // Mengambil userId dari tabel user
